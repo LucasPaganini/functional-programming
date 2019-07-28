@@ -9,3 +9,4 @@ export * from "./some";
 export * from "./none";
 export * from "./predicate";
 export * from "./equivalence";
+export * from "./task";

@@ -16,7 +16,7 @@ interface PredicateFactory extends MonoidFactory<Predicate<any>> {
 export const Predicate: PredicateFactory = <A = any>(
   fn: (v: A) => boolean
 ): Predicate<A> =>
-  Object.assign({}, fn, {
+  Object.assign((v: A) => fn(v), {
     contramap: <B>(f: (a: B) => A) => Predicate<B>(x => fn(f(x))),
     concat: (other: Predicate<A>): Predicate<A> =>
       Predicate(x => fn(x) && other(x))

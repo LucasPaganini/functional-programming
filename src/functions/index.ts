@@ -14,3 +14,4 @@ export * from "./fold";
 export * from "./map";
 export * from "./is-null";
 export * from "./is-undefined";
+export * from "./compose";

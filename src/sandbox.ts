@@ -1,5 +1,6 @@
-import { Sum } from "./classes";
-import { fold } from "./functions";
+import { Task } from "./classes";
 
-const r = fold(Sum)([1, 2, 3, 4, 5]);
-console.log({ r });
+const r = Task<number>(res => res(123));
+const r2 = r.map(n => "test");
+
+console.log({ r2 }, r2());
