@@ -1,4 +1,4 @@
-import { CovariantFunctor, Apply } from "../types";
+import { CovariantFunctor, Apply, ApplicativeFactory } from "../types";
 
 export interface Task<A> extends CovariantFunctor<A>, Apply<A> {
   (): Promise<A>;
@@ -6,7 +6,7 @@ export interface Task<A> extends CovariantFunctor<A>, Apply<A> {
   ap<B>(other: Task<(a: A) => B>): Task<B>;
 }
 
-interface TaskFactory {
+interface TaskFactory extends ApplicativeFactory {
   <A>(fn: (resolve: (a: A) => void) => void): Task<A>;
   of<A>(a: A): Task<A>;
 }

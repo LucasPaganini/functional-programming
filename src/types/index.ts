@@ -6,3 +6,4 @@ export * from "./factory";
 export * from "./covariant-functor";
 export * from "./contravariant-functor";
 export * from "./apply";
+export * from "./applicative";
