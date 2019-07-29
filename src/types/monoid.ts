@@ -1,6 +1,6 @@
 import { Semigroup } from "./semigroup";
 
-export interface MonoidFactory<M> {
+export interface MonoidT<M> {
   empty(): M;
 }
 

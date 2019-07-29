@@ -5,11 +5,11 @@ export interface Right<T> extends CovariantFunctor<T> {
   map<B>(f: (x: T) => B): Right<B>;
 }
 
-interface RightFactory {
+interface RightT {
   <T>(x: T): Right<T>;
 }
 
-export const Right: RightFactory = <T>(x: T) => {
+export const Right: RightT = <T>(x: T) => {
   return {
     x,
     map<B>(f: (x: T) => B): Right<B> {

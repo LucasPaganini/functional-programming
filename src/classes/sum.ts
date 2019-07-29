@@ -1,15 +1,15 @@
-import { Monoid, MonoidFactory, Ord } from "../types";
+import { Monoid, MonoidT, Ord } from "../types";
 
 export interface Sum extends Monoid<Sum>, Ord<Sum> {
   x: number;
 }
 
-interface SumFactory extends MonoidFactory<Sum> {
+interface SumT extends MonoidT<Sum> {
   (x: number): Sum;
   empty(): Sum;
 }
 
-export const Sum: SumFactory = x => {
+export const Sum: SumT = x => {
   return {
     x,
 

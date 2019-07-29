@@ -5,11 +5,11 @@ export interface Equivalence<A> extends ContravariantFunctor<A> {
   contramap<B>(fn: (a: B) => A): Equivalence<B>;
 }
 
-interface EquivalenceFactory {
+interface EquivalenceT {
   <A>(fn: (x: A) => (y: A) => boolean): Equivalence<A>;
 }
 
-export const Equivalence: EquivalenceFactory = <A>(
+export const Equivalence: EquivalenceT = <A>(
   f: (x: A) => (y: A) => boolean
 ): Equivalence<A> =>
   Object.assign({}, f, {

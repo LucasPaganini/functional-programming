@@ -1,17 +1,25 @@
-import { CovariantFunctor } from "../types";
+import { CovariantFunctor, Alt, PlusT } from "../types";
+import { Maybe } from "./maybe";
 
-export interface None extends CovariantFunctor<any> {
-  map(f: (x: any) => any): None;
+export interface None<T> extends CovariantFunctor<any>, Alt<T> {
+  map(f: (x: any) => any): None<T>;
+  alt(other: Maybe<T>): Maybe<T>;
 }
 
-interface NoneFactory {
-  (): None;
+interface NoneT extends PlusT {
+  (): None<any>;
+  zero(): None<any>;
 }
 
-export const None: NoneFactory = () => {
+export const None: NoneT = () => {
   return {
-    map(f: (x: any) => any): None {
+    map(): None<any> {
       return None();
+    },
+    alt<T>(other: Maybe<T>): Maybe<T> {
+      return other;
     }
   };
 };
+
+None.zero = () => None();

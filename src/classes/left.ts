@@ -5,11 +5,11 @@ export interface Left<E> extends CovariantFunctor<any> {
   map(f: (x: any) => any): Left<E>;
 }
 
-interface LeftFactory {
+interface LeftT {
   <E>(x: E): Left<E>;
 }
 
-export const Left: LeftFactory = <E>(x: E) => {
+export const Left: LeftT = <E>(x: E) => {
   return {
     x,
     map(f: (x: any) => any): Left<E> {

@@ -1,4 +1,4 @@
-import { ContravariantFunctor, Monoid, MonoidFactory } from "../types";
+import { ContravariantFunctor, Monoid, MonoidT } from "../types";
 
 export interface Predicate<A>
   extends ContravariantFunctor<A>,
@@ -8,12 +8,12 @@ export interface Predicate<A>
   concat(other: Predicate<A>): Predicate<A>;
 }
 
-interface PredicateFactory extends MonoidFactory<Predicate<any>> {
+interface PredicateT extends MonoidT<Predicate<any>> {
   <V = any>(fn: (v: V) => boolean): Predicate<V>;
   empty(): Predicate<any>;
 }
 
-export const Predicate: PredicateFactory = <A = any>(
+export const Predicate: PredicateT = <A = any>(
   fn: (v: A) => boolean
 ): Predicate<A> =>
   Object.assign((v: A) => fn(v), {

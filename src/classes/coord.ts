@@ -6,9 +6,9 @@ export interface Coord extends Ord<Coord> {
   z: number;
 }
 
-interface CoordFactory extends Factory<[number, number, number], Coord> {}
+interface CoordT extends Factory<[number, number, number], Coord> {}
 
-export const Coord: CoordFactory = ([x, y, z]) => {
+export const Coord: CoordT = ([x, y, z]) => {
   return {
     x,
     y,

@@ -2,11 +2,11 @@ import { isUndefined, isNull } from "../functions";
 import { Some } from "./some";
 import { None } from "./none";
 
-export type Maybe<T> = Some<T> | None;
+export type Maybe<T> = Some<T> | None<T>;
 
-interface MaybeFactory {
+interface MaybeT {
   <T>(x: T | null | undefined): Maybe<T>;
 }
 
-export const Maybe: MaybeFactory = <T>(x: T | null | undefined) =>
+export const Maybe: MaybeT = <T>(x: T | null | undefined) =>
   isUndefined(x) || isNull(x) ? None() : Some(x);

@@ -7,3 +7,6 @@ export * from "./covariant-functor";
 export * from "./contravariant-functor";
 export * from "./apply";
 export * from "./applicative";
+export * from "./alt";
+export * from "./plus";
+export * from "./alternative";

@@ -7,9 +7,9 @@ export interface Line extends Ord<Line> {
   to: Coord;
 }
 
-interface LineFactory extends Factory<[Coord, Coord], Line> {}
+interface LineT extends Factory<[Coord, Coord], Line> {}
 
-export const Line: LineFactory = ([from, to]) => {
+export const Line: LineT = ([from, to]) => {
   return {
     to,
     from,

@@ -12,7 +12,7 @@ export interface Set<A extends Setoid<A>> extends Semigroup<Set<A>> {
   concat(other: Set<A>): Set<A>;
 }
 
-interface SetFactory {}
+interface SetT {}
 
 export const Set = <A extends Setoid<A>>(values: Array<A>): Set<A> => {
   const _values = uniq(values);
