@@ -1,6 +1,6 @@
-import { Monoid, MonoidT, Ord } from "../types";
+import { Monoid, MonoidT, Ord, Foldable } from "../types";
 
-export interface Sum extends Monoid<Sum>, Ord<Sum> {
+export interface Sum extends Monoid<Sum>, Ord<Sum>, Foldable<number> {
   x: number;
 }
 
@@ -12,18 +12,16 @@ interface SumT extends MonoidT<Sum> {
 export const Sum: SumT = x => {
   return {
     x,
-
     concat(other) {
       return Sum(x + other.x);
     },
-
     equals(other) {
       return x === other.x;
     },
-
     lte(other) {
       return x <= other.x;
-    }
+    },
+    reduce: fn => seed => fn(seed)(x)
   };
 };
 

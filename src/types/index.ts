@@ -10,3 +10,4 @@ export * from "./applicative";
 export * from "./alt";
 export * from "./plus";
 export * from "./alternative";
+export * from "./foldable";

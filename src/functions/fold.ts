@@ -1,8 +1,9 @@
-import { Monoid, MonoidT, Factory } from "../types";
-import { concat } from "./concat";
+import { Monoid, MonoidT, Foldable } from "../types";
 
-type Fold = <T, M extends Monoid<M>>(
-  M: MonoidT<M> & Factory<T, M>
-) => (xs: Array<T>) => M;
-export const fold: Fold = M => xs =>
-  xs.reduce((acc, x) => concat(acc)(M(x)), M.empty());
+type Fold = <A, B extends Monoid<B>>(
+  fn: (a: A) => B
+) => (T: MonoidT<B>) => (fa: Foldable<A>) => B;
+export const fold: Fold = <A, B extends Monoid<B>>(fn: (a: A) => B) => (
+  T: MonoidT<B>
+) => (fa: Foldable<A>): B =>
+  fa.reduce<B>(acc => curr => acc.concat(fn(curr)))(T.empty());

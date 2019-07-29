@@ -1,11 +1,11 @@
-import { CovariantFunctor, Alt, PlusT } from "../types";
+import { CovariantFunctor, Alt, PlusT, Foldable } from "../types";
 import { Maybe } from "./maybe";
 import { None } from "./none";
 
-export interface Some<T> extends CovariantFunctor<T>, Alt<T> {
-  x: T;
-  map<B>(f: (x: T) => B): Some<B>;
-  alt(other: Maybe<T>): Some<T>;
+export interface Some<A> extends CovariantFunctor<A>, Alt<A>, Foldable<A> {
+  x: A;
+  map<B>(f: (x: A) => B): Some<B>;
+  alt(other: Maybe<A>): Some<A>;
 }
 
 interface SomeT extends PlusT {
@@ -13,14 +13,17 @@ interface SomeT extends PlusT {
   zero(): None<any>;
 }
 
-export const Some: SomeT = <T>(x: T) => {
+export const Some: SomeT = <A>(x: A) => {
   return {
     x,
-    map<B>(f: (x: T) => B): Some<B> {
+    map<B>(f: (x: A) => B): Some<B> {
       return Some(f(x));
     },
-    alt(): Some<T> {
+    alt(): Some<A> {
       return Some(x);
+    },
+    reduce: <B>(fn: (acc: B) => (curr: A) => B) => (seed: B): B => {
+      return fn(seed)(x);
     }
   };
 };
