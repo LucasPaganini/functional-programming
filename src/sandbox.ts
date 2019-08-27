@@ -1,6 +1,5 @@
-import { Task } from "./classes";
+import { tuple, map } from './lib/tuple'
 
-const r = Task<number>(res => res(123));
-const r2 = r.map(n => "test");
-
-console.log({ r2 }, r2());
+Promise.resolve('Hello')
+  .then(v => tuple(v, 10))
+  .then(t => map(t)(1)(x => 5))
