@@ -1,7 +1,7 @@
-import { Ord } from '../types'
+import { Ord } from '../lib/utils'
 
-import { not } from './not'
-import { gte } from './gte'
+import { not } from './fn.not'
+import { gte } from './fn.gte'
 
 type Lt = <A extends Ord>(x: A) => (y: A) => boolean
 export const lt: Lt = x => y => not(gte(x)(y))

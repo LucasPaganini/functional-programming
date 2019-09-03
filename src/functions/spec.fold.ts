@@ -1,6 +1,5 @@
-import { fold } from "./fold";
-import { Sum } from "../classes";
-import { equals } from "./equals";
+import { fold } from './fn.fold'
+import { Sum } from '../classes'
 
 // xdescribe("fold", () => {
 //   it("Should work with Sum and some arguments", () => {

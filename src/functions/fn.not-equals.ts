@@ -1,5 +1,5 @@
-import { Setoid } from '../types'
-import { not } from './not'
+import { Setoid } from '../lib/utils'
+import { not } from './fn.not'
 import { pipe } from './fn.pipe'
 
 type NotEquals = <T extends Setoid>(x: T) => (y: T) => boolean

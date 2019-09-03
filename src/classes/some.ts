@@ -1,4 +1,4 @@
-import { CovariantFunctor, Alt, PlusT, Foldable } from '../types'
+import { CovariantFunctor, Alt, PlusT, Foldable } from '../lib/utils'
 import { Maybe } from './maybe'
 import { None } from './none'
 

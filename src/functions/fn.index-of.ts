@@ -1,4 +1,4 @@
-import { Setoid } from '../types'
+import { Setoid } from '../lib/utils'
 
 // indexOf :: Setoid a => [a] -> a -> Int
 type IndexOf = <A extends Setoid>(xs: Array<A>) => (x: A) => number | undefined

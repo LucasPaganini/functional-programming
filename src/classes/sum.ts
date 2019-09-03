@@ -1,4 +1,4 @@
-import { Monoid, MonoidT, Ord, Foldable } from '../types'
+import { Monoid, MonoidT, Ord, Foldable } from '../lib/utils'
 
 export interface Sum extends Monoid, Ord, Foldable<number> {
   x: number
