@@ -1,7 +1,5 @@
-import { Ord } from "../types";
+import { Ord } from '../types'
+import { gt } from './gt'
 
-import { gt } from "./gt";
-import { equals } from "./equals";
-
-type Gte = <T extends Ord<T>>(x: T) => (y: T) => boolean;
-export const gte: Gte = x => y => gt(x)(y) || equals(x)(y);
+type Gte = <A extends Ord>(x: A) => (y: A) => boolean
+export const gte: Gte = x => y => gt(x)(y) || x.equals(y)

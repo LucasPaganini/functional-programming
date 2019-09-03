@@ -1,7 +1,7 @@
-import { Ord } from "../types";
+import { Ord } from '../types'
 
-import { not } from "./not";
-import { lte } from "./lte";
+import { not } from './not'
+import { lte } from './lte'
 
-type Gt = <T extends Ord<T>>(x: T) => (y: T) => boolean;
-export const gt: Gt = x => y => not(lte(x)(y));
+type Gt = <A extends Ord>(x: A) => (y: A) => boolean
+export const gt: Gt = x => y => not(lte(x)(y))

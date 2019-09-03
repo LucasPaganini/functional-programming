@@ -1,1 +1,1 @@
-export const isNull = (v: any): v is null => v === null;
+export const isNull = (v: any): v is null => v === null

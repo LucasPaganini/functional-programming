@@ -1,4 +1,4 @@
-import { Setoid } from "./setoid";
+import { Setoid } from './type.setoid'
 
 /**
  * # Laws
@@ -7,6 +7,6 @@ import { Setoid } from "./setoid";
  * - **Antisymmetry**: `a.lte(b) && b.lte(a) === a.equals(b)`
  * - **Transitivity**: `a.lte(b) && b.lte(c) === a.lte(c)`
  */
-export interface Ord<T> extends Setoid<T> {
-  lte(other: T): boolean;
+export interface Ord extends Setoid {
+  lte(other: this): boolean
 }
