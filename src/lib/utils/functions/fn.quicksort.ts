@@ -1,4 +1,4 @@
-import { Ord } from '../lib/utils'
+import { Ord } from '..'
 import { clone } from './fn.clone'
 import { lt } from './fn.lt'
 

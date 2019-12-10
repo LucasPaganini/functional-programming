@@ -1,4 +1,4 @@
-import { Setoid } from '../lib/utils'
+import { Setoid } from '..'
 import { indexOf } from './fn.index-of'
 
 type Uniq = <A extends Setoid>(xs: Array<A>) => Array<A>

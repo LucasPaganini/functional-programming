@@ -1,4 +1,4 @@
-import { Ord } from '../lib/utils'
+import { Ord } from '..'
 
 import { not } from './fn.not'
 import { lte } from './fn.lte'

@@ -1,5 +1,5 @@
 import { Semigroup, Setoid } from '../lib/utils'
-import { uniq, indexOf, isUndefined } from '../functions'
+import { uniq, indexOf, isUndefined } from '../lib/utils/functions'
 
 export interface Set<A extends Setoid> extends Semigroup {
   toArray(): Array<A>

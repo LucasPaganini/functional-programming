@@ -1,4 +1,4 @@
-import { Setoid } from '../lib/utils'
+import { Setoid } from '..'
 
 import { reverse } from './fn.reverse'
 

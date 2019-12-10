@@ -1,4 +1,4 @@
-import { Setoid } from '../lib/utils'
+import { Setoid } from '..'
 import { not } from './fn.not'
 import { pipe } from './fn.pipe'
 

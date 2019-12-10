@@ -1,5 +1,5 @@
 import { Ord, Factory } from '../lib/utils'
-import { lt } from '../functions'
+import { lt } from '../lib/utils/functions'
 import { Coord } from './coord'
 
 export interface Line extends Ord {
