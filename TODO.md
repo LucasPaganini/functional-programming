@@ -1,8 +1,8 @@
 - [ ] Maybe
-- [x] Either
+- [ ] Either
 - [ ] Function
 - [ ] Validation
 - [ ] Tuple
 - [ ] Set
-- [ ] Ord
-- [ ] Functor
+- [ ] Task
+- [ ] Tree
